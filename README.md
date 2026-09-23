@@ -177,3 +177,8 @@ Release history is maintained in [`CHANGELOG.md`](CHANGELOG.md).
 ## License
 
 KickNotes is released under the **MIT License**. See [`LICENSE`](LICENSE) for the full license text.
+
+
+## Development disclosure 
+
+KickNotes was developed with AI-assisted programming, documentation, and project artwork. Addon behavior and mechanic data are reviewed and tested in-game.
