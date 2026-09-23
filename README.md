@@ -4,7 +4,7 @@ KickNotes is a lightweight learning and reminder addon for **World of Warcraft**
 
 KickNotes is deliberately **not** a real-time combat assistant. It does not inspect combat-log casts and shout which button to press. The goal is to tell you what matters when you enter an instance, help you learn it, and gradually get out of the way once the mechanics stick.
 
-Current release: **0.3.0**  
+Current release: **0.3.1**  
 WoW interface: **12.1 / 120100**
 
 ## Features
@@ -56,7 +56,7 @@ Learning state can be reset for the current instance or globally from **Options 
 ### Recommended: GitHub Releases
 
 1. Open the repository's **Releases** page.
-2. Download the latest file named similar to `KickNotes-0.3.0.zip`.
+2. Download the latest file named similar to `KickNotes-0.3.1.zip`.
 3. Extract it into:
 
    `World of Warcraft/_retail_/Interface/AddOns/`
@@ -103,6 +103,8 @@ The repository root contains `KickNotes.toc` directly.
 ## Data philosophy
 
 KickNotes intentionally favors a **small, useful list** over dumping every interruptible spell in an instance onto the screen. Accuracy for current Mythic+ content is the priority.
+
+Mechanics can be sorted by **Dungeon order** (the default) or by **Priority** in General settings.
 
 `Essential`, `Important`, and `Optional` describe general reminder priority. `MUST STOP` is a separate, deliberately rarer severity marker for mechanics where a failed stop can cause deaths, severe group damage, or major pull failure. It is not intended to claim that every missed cast is a literal guaranteed wipe at every key level.
 
@@ -157,7 +159,7 @@ Official GitHub release archives should contain a single top-level `KickNotes/` 
 Example:
 
 ```text
-KickNotes-0.3.0.zip
+KickNotes-0.3.1.zip
 └── KickNotes/
     ├── KickNotes.toc
     ├── Core.lua

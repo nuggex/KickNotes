@@ -361,6 +361,14 @@ function KN:RegisterSettings()
         { value = 60, label = "After 60 seconds" },
     }, function() return KN.db.autoZipSeconds end, function(v) KN.db.autoZipSeconds = v end)
 
+    y = makeHeader(general.content, "List order", y - 2)
+    y = makeCycle(panel, general.content, "KickNotesSortCycle", "Sort mechanics by", y, {
+        { value = "dungeon",  label = "Dungeon order" },
+        { value = "priority", label = "Priority" },
+    }, function() return KN.db.sortMode end, function(v) KN.db.sortMode = v end)
+    y = makeText(general.content,
+        "Dungeon order follows the run naturally (Trash 1, Boss 1, Trash 2, Boss 2...). Priority puts MUST STOP and higher-priority mechanics first regardless of where they appear.", y, 64)
+
     y = makeHeader(general.content, "Mechanic priority", y - 2)
     y = makeCycle(panel, general.content, "KickNotesPriorityCycle", "Show mechanics", y, {
         { value = 3, label = "Essential only" },

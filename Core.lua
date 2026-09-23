@@ -1,7 +1,7 @@
 local ADDON_NAME, KN = ...
 
 KN.name = ADDON_NAME
-KN.version = "0.3.0"
+KN.version = "0.3.1"
 KN.content = KN.content or {}
 KN.contentByName = KN.contentByName or {}
 KN.currentContent = nil
@@ -26,6 +26,7 @@ local DEFAULTS = {
     highlightMustStop = true,
     mustStopColor = { r = 1.00, g = 0.22, b = 0.14 },
     minimumPriority = 2, -- 3 = Essential, 2 = Essential + Important, 1 = Everything
+    sortMode = "dungeon", -- dungeon = route order, priority = severity/priority first
     autoZipSeconds = 0,
     startZipped = false,
     scale = 1.0,
@@ -608,12 +609,74 @@ function KN:GetVisibleEntries(record, encounterName)
         end
     end
 
-    table.sort(visible, function(a, b)
+    local function sectionOrder(entry)
+        local where = entry and entry.where
+        if type(where) ~= "string" then
+            return math.huge
+        end
+
+        local best = math.huge
+        for prefix, numberText in where:gmatch("([TB])(%d+)") do
+            local number = tonumber(numberText)
+            if number then
+                -- Natural dungeon flow: T1, B1, T2, B2, T3, B3...
+                local value = ((number - 1) * 2) + (prefix == "B" and 2 or 1)
+                if value < best then
+                    best = value
+                end
+            end
+        end
+        return best
+    end
+
+    local function compareImportance(a, b)
+        local ma = a.mustStop and 1 or 0
+        local mb = b.mustStop and 1 or 0
+        if ma ~= mb then
+            return ma > mb
+        end
+
         local pa = a.priority or 2
         local pb = b.priority or 2
         if pa ~= pb then
             return pa > pb
         end
+        return nil
+    end
+
+    table.sort(visible, function(a, b)
+        if self.db.sortMode == "dungeon" and record.type == "dungeon" then
+            local oa = sectionOrder(a)
+            local ob = sectionOrder(b)
+            if oa ~= ob then
+                return oa < ob
+            end
+
+            local importance = compareImportance(a, b)
+            if importance ~= nil then
+                return importance
+            end
+
+            -- Preserve curated source order inside an otherwise identical section.
+            if (a._knIndex or 0) ~= (b._knIndex or 0) then
+                return (a._knIndex or 0) < (b._knIndex or 0)
+            end
+        else
+            local importance = compareImportance(a, b)
+            if importance ~= nil then
+                return importance
+            end
+
+            -- In Priority mode, encounter order is only a tie-breaker.
+            if record.type == "dungeon" then
+                local oa = sectionOrder(a)
+                local ob = sectionOrder(b)
+                if oa ~= ob then
+                    return oa < ob
+                end
+            end
+        end
+
         return (a.spell or a.title or "") < (b.spell or b.title or "")
     end)
 

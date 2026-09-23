@@ -1,5 +1,16 @@
 # KickNotes changelog
 
+## 0.3.1
+
+### Added
+- Added a **Sort mechanics by** option with **Dungeon order** and **Priority** modes.
+- Dungeon order follows the natural route: Trash 1, Boss 1, Trash 2, Boss 2, and so on.
+- MUST STOP and higher-priority mechanics still sort first within the same dungeon section.
+
+### Changed
+- Dungeon order is now the default sorting mode.
+- Priority mode keeps high-severity/high-priority mechanics at the top and uses encounter order as a tie-breaker.
+
 ## 0.3.0
 
 ### Added
@@ -16,6 +27,7 @@
 - Stable generated IDs for every bundled mechanic.
 
 ### Release polish
+- Added MIT license and included it in release packaging.
 - Empty hidden-learning lists now report that all matching mechanics are learned.
 - Saved-variable defaults are migration-safe from 0.2.x.
 - All bundled Lua files pass syntax validation.
