@@ -1,5 +1,12 @@
 # KickNotes changelog
 
+## 0.3.2
+
+### Fixed
+- Lowered the reminder window from `DIALOG` to `MEDIUM` frame strata.
+- Blizzard panels such as the Character window can now appear above KickNotes instead of being covered by it.
+- KickNotes remains above the game world as a normal HUD-style reminder.
+
 ## 0.3.1
 
 ### Added

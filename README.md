@@ -4,7 +4,7 @@ KickNotes is a lightweight learning and reminder addon for **World of Warcraft**
 
 KickNotes is deliberately **not** a real-time combat assistant. It does not inspect combat-log casts and shout which button to press. The goal is to tell you what matters when you enter an instance, help you learn it, and gradually get out of the way once the mechanics stick.
 
-Current release: **0.3.1**  
+Current release: **0.3.2**  
 WoW interface: **12.1 / 120100**
 
 ## Features
@@ -56,7 +56,7 @@ Learning state can be reset for the current instance or globally from **Options 
 ### Recommended: GitHub Releases
 
 1. Open the repository's **Releases** page.
-2. Download the latest file named similar to `KickNotes-0.3.1.zip`.
+2. Download the latest file named similar to `KickNotes-0.3.2.zip`.
 3. Extract it into:
 
    `World of Warcraft/_retail_/Interface/AddOns/`
@@ -159,7 +159,7 @@ Official GitHub release archives should contain a single top-level `KickNotes/` 
 Example:
 
 ```text
-KickNotes-0.3.1.zip
+KickNotes-0.3.2.zip
 └── KickNotes/
     ├── KickNotes.toc
     ├── Core.lua
@@ -177,8 +177,3 @@ Release history is maintained in [`CHANGELOG.md`](CHANGELOG.md).
 ## License
 
 KickNotes is released under the **MIT License**. See [`LICENSE`](LICENSE) for the full license text.
-
-
-## Development disclosure 
-
-KickNotes was developed with AI-assisted programming, documentation, and project artwork. Addon behavior and mechanic data are reviewed and tested in-game.

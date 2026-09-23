@@ -198,7 +198,7 @@ function KN:CreateMainFrame()
 
     local frame = CreateFrame("Frame", "KickNotesMainFrame", UIParent, "BackdropTemplate")
     frame:SetSize(self.db.fullWidth or 470, 360)
-    frame:SetFrameStrata("DIALOG")
+    frame:SetFrameStrata("MEDIUM")
     frame:SetClampedToScreen(true)
     frame:SetMovable(true)
     frame:EnableMouse(true)

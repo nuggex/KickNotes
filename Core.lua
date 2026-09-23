@@ -1,7 +1,7 @@
 local ADDON_NAME, KN = ...
 
 KN.name = ADDON_NAME
-KN.version = "0.3.1"
+KN.version = "0.3.2"
 KN.content = KN.content or {}
 KN.contentByName = KN.contentByName or {}
 KN.currentContent = nil

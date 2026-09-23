@@ -2,7 +2,7 @@
 ## Title: KickNotes
 ## Notes: Pre-pull interrupt, stop, dispel and mechanic reminders for dungeons and raids.
 ## Author: nugge + ChatGPT
-## Version: 0.3.1
+## Version: 0.3.2
 ## SavedVariables: KickNotesDB
 ## SavedVariablesPerCharacter: KickNotesCharDB
 
