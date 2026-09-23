@@ -1,0 +1,13 @@
+## Interface: 120100
+## Title: KickNotes
+## Notes: Pre-pull interrupt, stop, dispel and mechanic reminders for dungeons and raids.
+## Author: nugge + ChatGPT
+## Version: 0.3.0
+## SavedVariables: KickNotesDB
+## SavedVariablesPerCharacter: KickNotesCharDB
+
+Core.lua
+ClassTools.lua
+Data_Season2.lua
+UI.lua
+Options.lua
